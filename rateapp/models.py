@@ -29,5 +29,10 @@ class Project(models.Model):
     def save(self):
         self.save()
 
+    @classmethod
+    def search_project(cls, search_title):
+        return cls.objects.filter(title__icontains=search_title).all()
 
-
+    @classmethod
+    def all_projects(cls):
+        return cls.objects.all()
