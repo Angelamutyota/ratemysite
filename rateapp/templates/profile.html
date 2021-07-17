@@ -1,0 +1,9 @@
+
+{{user}}
+{% for project in projects %}
+ <h1> {{project.title}} </h1>    
+ <img src="{{project.project_image.url}}" alt="" width="200px">
+    <p>{{project.description}}</p>
+  <a href="{{project.link}}" target="_blank">{{project.link}}</a>
+  {% endfor %}
+
