@@ -6,13 +6,18 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     profile_pic = models.ImageField(upload_to='images/', default='default.png')
     bio = models.TextField(max_length=500, default="My Bio", blank=True)
-    contact = models.IntegerField(max_length=100, blank=True)
+    contact = models.CharField(max_length = 10,blank =True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
 
     def save(self):
         self.save()
+    
+    @classmethod
+    def search_profile(cls,username):
+        return cls.objects.fiter(user__username__icontains = username).all()
+    
 
 class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
