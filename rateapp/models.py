@@ -11,7 +11,7 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
+    def save_profile(self):
         self.save()
     
     @classmethod
@@ -31,7 +31,7 @@ class Project(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-    def save(self):
+    def save_project(self):
         self.save()
 
     @classmethod
