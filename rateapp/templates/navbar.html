@@ -10,15 +10,15 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <ul style="list-style-type:none;">
-       <a class="navbar-brand " href="" >RatemySite</a><br>
-       <!-- <a href="">Upload project</a>   -->
+       <a class="navbar-brand " href="/" >RatemySite</a><br>
+       <a href="{%url 'new_project'%}">Upload project</a>  
       </ul>
     </div>
-    <!-- <div class="navbar-right">
-      <span> <a href="">{{request.user }}</a></span><br>
-      <span><a href="">Logout</a></span>
+    <div class="navbar-right">
+      <span> <a href="{% url 'profile' %}">{{request.user }}</a></span><br>
+      <span><a href="  {% url 'logout' %}">Logout</a></span>
     </div> 
-  </div> -->
+  </div>
   <div class="col-sm-4 col-md-5 navbar-center" style="text-align: right;" >
 
     <form class="navbar-form" role="search" action="{%url 'search_results'%}" >

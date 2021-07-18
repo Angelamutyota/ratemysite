@@ -7,6 +7,6 @@
     <img src="{{project.project_image.url}}" alt="" width="200px">
     <p>{{project.description}}</p>
   <a href="{{project.link}}" target="_blank">{{project.link}}</a>
-  {% endfor %}
+  <a href="{% url 'project' project.id %}" class="btn btn-success p-2">View Post</a>  {% endfor %}
  </div>
 {% endblock %}

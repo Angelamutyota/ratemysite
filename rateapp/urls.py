@@ -4,10 +4,15 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns=[
+   path('register/', views.registerPage, name= 'register'),
+   path('login/', views.loginPage, name= 'loginpage'),
+   path('logout/',views.logoutpage,name='logout'),
+
     path('',views.index, name = 'index'),
     path('profile/', views.profile, name= 'profile'),
-    path(r'^search/', views.search, name='search_results'),
-   path('uploadproject/',views.new_project,name='new_project')
+    path('search/', views.search, name='search_results'),
+    path('uploadproject/',views.new_project,name='new_project'),
+    path('project/<int:id>/',views.project,name='project'),
 
 ]
 if settings.DEBUG:

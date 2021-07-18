@@ -1,9 +1,55 @@
-
-{{user}}
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="container" style="margin-top:8%">
+    <div class="content-section">
+        <div class="media">
+            <div class="container">
+                <div class="card">
+                    <div class="row justify-content-center">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <img class="rounded-circle account-img" src="{{ user.profile.profile_pic.url }}"
+                            width="100%">
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <div class="media-body">
+                            <div class="account-heading"><span
+                                    class="mr-3 text-secondary username"> <b>Name:</b> {{ user.username }}</span>
+                                <a class="btn btn-sm text-light mr-3" data-toggle="modal"
+                                    data-target=".bd-example-modal-md "><strong>Edit Profile</strong></a>
+                            </div>
+                            <p class="text-secondary"> <b>Bio:</b> {{ user.profile.bio }}</p>
+                            <p class="text-secondary"> <b>Contact:</b> {{ user.profile.contact }}</p>
+                            <button type="button" class="btn text-light mr-4" data-toggle="modal" data-target="#exampleModal_">
+                                Add Project
+                              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
+                {% csrf_token%}
+                {{ prof_form|crispy}}
+                <button type="submit" class="btn text-success btn-sm"> Update Profile</button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">close
+                </button>
+            </form>
+        </div>
+        <h3 class="text-center m-4">My projects</h3>
+        <hr>
+            <div class = container>
+                <div class="row justify-content-center">
 {% for project in projects %}
- <h1> {{project.title}} </h1>    
- <img src="{{project.project_image.url}}" alt="" width="200px">
+<div class="card col-md-3 m-3">
+    <h4 class="card-title">{{project.title}}</h4>
+    <img class="card-img-top" width="100%" src="{{ project.project_image.url }}" alt="-------">
     <p>{{project.description}}</p>
-  <a href="{{project.link}}" target="_blank">{{project.link}}</a>
-  {% endfor %}
-
+    <a href="{{project.link}}" target="_blank">{{project.link}}</a>
+</div>
+</div>
+</div>
+{% endfor %}
+    </div>
+{% endblock %}
