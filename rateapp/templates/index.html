@@ -2,6 +2,7 @@
 
 {% block content %}
  <div class="container">
+   <div class="card"></div>
     {% for project in projects %}
     <h3>{{project.title}}</h3>
     <a href="{% url 'project' project.id %}"><img src="{{project.project_image.url}}" alt="" width="200px">
@@ -10,4 +11,5 @@
   <a href="{{project.link}}" target="_blank">link</a>
   {% endfor %}
  </div>
+</div>
 {% endblock %}
