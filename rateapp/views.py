@@ -1,4 +1,5 @@
 from django.http.response import Http404
+from rest_framework import serializers
 from rateapp.forms import ProjectForm, CreateUserForm, ProfileForm
 from django.shortcuts import render, redirect
 from django.http  import HttpResponse
@@ -7,8 +8,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializer import ProfileSerializer, ProjectSerializer
+from rateapp import serializer
 
 # Create your views here.
 def registerPage(request):
@@ -103,3 +106,4 @@ def project(request, id):
         raise Http404()
 
     return render(request, "project.html", {"project":project})
+

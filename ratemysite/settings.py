@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rateapp',
     'bootstrap5',
     'crispy_forms',
+    'rest_framework',
+
 
 ]
 

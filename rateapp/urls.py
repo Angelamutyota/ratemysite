@@ -13,6 +13,8 @@ urlpatterns=[
     path('search/', views.search, name='search_results'),
     path('uploadproject/',views.new_project,name='new_project'),
     path('project/<int:id>/',views.project,name='project'),
+    path('api/project/', views.ProjectList.as_view()),
+    path('api/profile/', views.ProfileList.as_view())
 
 ]
 if settings.DEBUG:
