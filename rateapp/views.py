@@ -102,6 +102,7 @@ def  new_project(request):
         form = ProjectForm()
     return render(request,'newproject.html',{"form":form})
 
+@login_required(login_url='login')
 def project(request, id):
     try:
         project = Project.objects.get(id =id)
