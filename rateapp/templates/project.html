@@ -9,8 +9,9 @@
     <p>{{project.description}}</p>
 <button class="btn btn-info"><a href="{{project.link}}" target="_blank">link</a></button>
 <div class="row">
-  {% ratings project %} <br>
-
+  <h5>Design:</h5>{% ratings project %} <br>
+  <h5>usability:</h5>{% ratings project %} <br>
+  <h5>Content:</h5>{% ratings project %} 
 </div>
 
 {% endblock %}
