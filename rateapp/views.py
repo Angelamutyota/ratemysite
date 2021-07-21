@@ -51,7 +51,7 @@ def index(request):
     projects = Project.objects.all()
     return render(request, 'index.html', {'projects': projects})
 
-
+@login_required(login_url='login')
 def profile(request):
     try:
         profile = request.user.profile
