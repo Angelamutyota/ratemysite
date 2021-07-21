@@ -88,6 +88,7 @@ def search(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
+@login_required(login_url='login')
 def  new_project(request):
     current_user = request.user
     if request.method == 'POST':
