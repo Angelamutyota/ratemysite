@@ -46,6 +46,7 @@ def logoutpage(request):
     logout(request)
     return redirect('loginpage')
 
+@login_required(login_url='login')
 def index(request):
     projects = Project.objects.all()
     return render(request, 'index.html', {'projects': projects})
