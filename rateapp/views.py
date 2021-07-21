@@ -46,12 +46,12 @@ def logoutpage(request):
     logout(request)
     return redirect('loginpage')
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def index(request):
     projects = Project.objects.all()
     return render(request, 'index.html', {'projects': projects})
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def profile(request):
     try:
         profile = request.user.profile
@@ -74,7 +74,7 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def search(request):
     if 'projectname' in request.GET and request.GET ['projectname']:
         search_title = request.GET.get('projectname')
@@ -88,7 +88,7 @@ def search(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def  new_project(request):
     current_user = request.user
     if request.method == 'POST':
@@ -102,7 +102,7 @@ def  new_project(request):
         form = ProjectForm()
     return render(request,'newproject.html',{"form":form})
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def project(request, id):
     try:
         project = Project.objects.get(id =id)
