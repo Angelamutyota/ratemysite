@@ -74,6 +74,7 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+@login_required(login_url='login')
 def search(request):
     if 'projectname' in request.GET and request.GET ['projectname']:
         search_title = request.GET.get('projectname')
