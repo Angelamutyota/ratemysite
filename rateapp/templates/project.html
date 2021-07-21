@@ -7,4 +7,10 @@
     <img src="{{project.project_image.url}}" alt="" width="200px">
     <p>{{project.description}}</p>
   <a href="{{project.link}}" target="_blank">{{project.link}}</a>
+
+<div class="row">
+  {% ratings project %} <br>
+
+</div>
+
 {% endblock %}
