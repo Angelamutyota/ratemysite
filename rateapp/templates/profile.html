@@ -44,7 +44,7 @@
 {% for project in projects %}
 <div class="card col-md-3 m-3">
     <h4 class="card-title">{{project.title}}</h4>
-    <img class="card-img-top" width="100%" src="{{ project.project_image.url }}" alt="-------">
+    <a href="{% url 'project' project.id %}"><img src="{{project.project_image.url}}" class="card-img-top" alt="" width="200px"> </a>
     <p>{{project.description}}</p>
     <a href="{{project.link}}" target="_blank">{{project.link}}</a>
 </div>
