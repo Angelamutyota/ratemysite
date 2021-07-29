@@ -51,8 +51,9 @@ python manage.py makemigrations pictures
  python manage.py createsuperuser
  ``` 
  set up the username, email and password
+ ``` 
+ access the admin dashboard using the following link 127.0.0.1:8000/admin.
   ``` 
-access the admin dashboard using the following link 127.0.0.1:8000/admin.
 
 ##### Running the application  
  ```bash 
